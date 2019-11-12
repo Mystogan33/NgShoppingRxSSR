@@ -2,7 +2,7 @@ import { enableProdMode } from '@angular/core';
 
 import { environment } from './environments/environment';
 
-if (environment.production || process.env.NODE_ENV == 'production') {
+if (environment.production) {
   enableProdMode();
 }
 
