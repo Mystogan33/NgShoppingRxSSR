@@ -7,7 +7,7 @@ import { join } from 'path';
     AngularUniversalModule.forRoot({
       viewsPath: join(process.cwd(), 'dist/browser'),
       bundle: require('../server/main'),
-      liveReload: false
+      liveReload: true
     })
   ]
 })
