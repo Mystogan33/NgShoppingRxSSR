@@ -2,6 +2,8 @@
   "name": "ng-shopping",
   "version": "0.0.0",
   "scripts": {
+    "start:heroku": "node dist/server",
+    "postinstall": "npm run build:ssr",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -12,11 +14,7 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run NgShopping:server:production",
-    "deploy:ssr": "npm run build:ssr && npm run serve:ssr"
-  },
-  "engines": {
-    "node": "10"
+    "build:client-and-server-bundles": "ng build --prod && ng run NgShopping:server:production"
   },
   "private": true,
   "dependencies": {

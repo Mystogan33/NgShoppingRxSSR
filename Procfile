@@ -1,1 +1,1 @@
-web: npm run deploy:ssr
+web: npm run start:heroku
