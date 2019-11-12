@@ -2,11 +2,10 @@ import { enableProdMode } from '@angular/core';
 
 import { environment } from './environments/environment';
 
-if (environment.production) {
+if (environment.production || process.env.NODE_ENV == 'production') {
   enableProdMode();
 }
 
 export { AppServerModule } from './app/app.server.module';
 export { ngExpressEngine } from "@nguniversal/express-engine";
 export { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
-
