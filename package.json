@@ -7,8 +7,17 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "serve": "node serve-script",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run NgShopping:server:production",
+    "deploy:ssr": "npm run build:ssr && npm run serve:ssr"
   },
+  "engines": {
+    "node": "10"
+  }
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.8",
@@ -18,7 +27,24 @@
     "@angular/forms": "~8.2.8",
     "@angular/platform-browser": "~8.2.8",
     "@angular/platform-browser-dynamic": "~8.2.8",
+    "@angular/platform-server": "~8.2.8",
     "@angular/router": "~8.2.8",
+    "@nestjs/common": "^6.0.0",
+    "@nestjs/core": "^6.0.0",
+    "@nestjs/ng-universal": "^2.0.1",
+    "@nestjs/platform-express": "^6.0.0",
+    "@ngrx/effects": "^8.4.0",
+    "@ngrx/router-store": "^8.5.0",
+    "@ngrx/store": "^8.4.0",
+    "@ngrx/store-devtools": "^8.5.0",
+    "@nguniversal/express-engine": "^8.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^8.0.0",
+    "@types/bootstrap": "^4.3.1",
+    "@types/jquery": "^3.3.31",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -39,9 +65,14 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+    "nodemon": "^1.18.11",
     "protractor": "~5.4.0",
+    "rimraf": "^2.6.3",
+    "ts-loader": "^5.2.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.5.3"
+    "typescript": "~3.5.3",
+    "wait-on": "^3.2.0",
+    "webpack-cli": "^3.1.0"
   }
 }
